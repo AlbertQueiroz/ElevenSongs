@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		50D398262C87A34A00E6A5D5 /* ElevenSongsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398252C87A34A00E6A5D5 /* ElevenSongsApp.swift */; };
-		50D398282C87A34A00E6A5D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398272C87A34A00E6A5D5 /* ContentView.swift */; };
-		50D3982A2C87A34A00E6A5D5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398292C87A34A00E6A5D5 /* Item.swift */; };
+		50D398282C87A34A00E6A5D5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398272C87A34A00E6A5D5 /* TabBarView.swift */; };
+		50D3982A2C87A34A00E6A5D5 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398292C87A34A00E6A5D5 /* Music.swift */; };
 		50D3982C2C87A34C00E6A5D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D3982B2C87A34C00E6A5D5 /* Assets.xcassets */; };
 		50D3982F2C87A34C00E6A5D5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D3982E2C87A34C00E6A5D5 /* Preview Assets.xcassets */; };
 		50D398392C87A34C00E6A5D5 /* ElevenSongsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398382C87A34C00E6A5D5 /* ElevenSongsTests.swift */; };
 		50D398432C87A34C00E6A5D5 /* ElevenSongsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398422C87A34C00E6A5D5 /* ElevenSongsUITests.swift */; };
 		50D398452C87A34C00E6A5D5 /* ElevenSongsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398442C87A34C00E6A5D5 /* ElevenSongsUITestsLaunchTests.swift */; };
+		50D398592C87BD5E00E6A5D5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398582C87BD5E00E6A5D5 /* EmptyStateView.swift */; };
+		50D3985B2C87BD9900E6A5D5 /* GlobalPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3985A2C87BD9900E6A5D5 /* GlobalPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +39,8 @@
 /* Begin PBXFileReference section */
 		50D398222C87A34A00E6A5D5 /* ElevenSongs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElevenSongs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D398252C87A34A00E6A5D5 /* ElevenSongsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenSongsApp.swift; sourceTree = "<group>"; };
-		50D398272C87A34A00E6A5D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		50D398292C87A34A00E6A5D5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		50D398272C87A34A00E6A5D5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		50D398292C87A34A00E6A5D5 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		50D3982B2C87A34C00E6A5D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50D3982E2C87A34C00E6A5D5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		50D398342C87A34C00E6A5D5 /* ElevenSongsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElevenSongsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +48,8 @@
 		50D3983E2C87A34C00E6A5D5 /* ElevenSongsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElevenSongsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D398422C87A34C00E6A5D5 /* ElevenSongsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenSongsUITests.swift; sourceTree = "<group>"; };
 		50D398442C87A34C00E6A5D5 /* ElevenSongsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenSongsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		50D398582C87BD5E00E6A5D5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		50D3985A2C87BD9900E6A5D5 /* GlobalPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +101,14 @@
 			isa = PBXGroup;
 			children = (
 				50D398252C87A34A00E6A5D5 /* ElevenSongsApp.swift */,
-				50D398272C87A34A00E6A5D5 /* ContentView.swift */,
-				50D398292C87A34A00E6A5D5 /* Item.swift */,
 				50D3982B2C87A34C00E6A5D5 /* Assets.xcassets */,
+				50D398542C87B79F00E6A5D5 /* Data */,
+				50D398552C87B7A400E6A5D5 /* Domain */,
+				50D398562C87B7AC00E6A5D5 /* Interface */,
+				50D398572C87B7BF00E6A5D5 /* Scenes */,
+				50D398512C87B76600E6A5D5 /* Model */,
+				50D398522C87B77000E6A5D5 /* View */,
+				50D398532C87B78D00E6A5D5 /* ViewModel */,
 				50D3982D2C87A34C00E6A5D5 /* Preview Content */,
 			);
 			path = ElevenSongs;
@@ -128,6 +137,59 @@
 				50D398442C87A34C00E6A5D5 /* ElevenSongsUITestsLaunchTests.swift */,
 			);
 			path = ElevenSongsUITests;
+			sourceTree = "<group>";
+		};
+		50D398512C87B76600E6A5D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				50D398292C87A34A00E6A5D5 /* Music.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		50D398522C87B77000E6A5D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50D398272C87A34A00E6A5D5 /* TabBarView.swift */,
+				50D398582C87BD5E00E6A5D5 /* EmptyStateView.swift */,
+				50D3985A2C87BD9900E6A5D5 /* GlobalPlayerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		50D398532C87B78D00E6A5D5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		50D398542C87B79F00E6A5D5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		50D398552C87B7A400E6A5D5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		50D398562C87B7AC00E6A5D5 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		50D398572C87B7BF00E6A5D5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50D398282C87A34A00E6A5D5 /* ContentView.swift in Sources */,
-				50D3982A2C87A34A00E6A5D5 /* Item.swift in Sources */,
+				50D398282C87A34A00E6A5D5 /* TabBarView.swift in Sources */,
+				50D3985B2C87BD9900E6A5D5 /* GlobalPlayerView.swift in Sources */,
+				50D3982A2C87A34A00E6A5D5 /* Music.swift in Sources */,
+				50D398592C87BD5E00E6A5D5 /* EmptyStateView.swift in Sources */,
 				50D398262C87A34A00E6A5D5 /* ElevenSongsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
