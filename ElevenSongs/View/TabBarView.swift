@@ -24,7 +24,10 @@ struct TabBarView: View {
                         Label("Favorites", systemImage: "star")
                     }
             }
-            GlobalPlayerView()
+            GlobalPlayerView(
+                fileName: "imagine",
+                url: Bundle.main.url(forResource: "imagine", withExtension: "mp3")
+            )
         }
     }
 
