@@ -9,41 +9,32 @@ import Foundation
 import AVKit
 
 public final class GlobalPlayerViewModel: ObservableObject {
-    @Published var player: AVAudioPlayer?
-    @Published var isPlaying = false
-    @Published var totalTime: TimeInterval = 0.0
-    @Published var currentTime: TimeInterval = 0.0
-    @Published var music: Music
+    @Published var globalPlayer: GlobalPlayer = .instance
+    public let music: Music
 
     public init(music: Music) {
         self.music = music
+        self.globalPlayer.playingMusic = music
     }
 
     public func playPause() {
-        if isPlaying {
-            player?.pause()
+        if globalPlayer.isPlaying {
+            globalPlayer.player?.pause()
         } else {
-            player?.play()
+            globalPlayer.player?.play()
         }
-        isPlaying.toggle()
-
+        globalPlayer.isPlaying.toggle()
     }
 
     public func setupAudio() {
-        guard let url = music.url else { return }
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.prepareToPlay()
-            totalTime = player?.duration ?? 0.0
-            try AVAudioSession.sharedInstance().setCategory(.playback)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Error loading audio: \(error)")
-        }
+        globalPlayer.setupAudio()
     }
 
-    public func updateProgress() {
-        guard let player = player, player.isPlaying else { return }
-        currentTime = player.currentTime
+    public func back() {
+
+    }
+
+    public func next() {
+        
     }
 }
