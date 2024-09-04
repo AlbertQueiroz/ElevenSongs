@@ -26,10 +26,6 @@ public final class GlobalPlayerViewModel: ObservableObject {
         globalPlayer.isPlaying.toggle()
     }
 
-    public func setupAudio() {
-        globalPlayer.setupAudio()
-    }
-
     public func back() {
 
     }

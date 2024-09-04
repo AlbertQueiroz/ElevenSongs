@@ -11,12 +11,15 @@ import SwiftData
 struct LibraryView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Music]
-    @State private var showingAlert = false
-    @State private var urlString = ""
-    @State private var name: String = ""
+    @ObservedObject var viewModel: LibraryViewModel
+
 
     private var fileUrl: URL? {
-        .init(string: urlString)
+        .init(string: viewModel.urlString)
+    }
+
+    public init(viewModel: LibraryViewModel = .init()) {
+        self.viewModel = viewModel
     }
 
     var body: some View {
@@ -28,11 +31,7 @@ struct LibraryView: View {
                             Text(item.name)
                             Spacer()
                             Button("", systemImage: "play.fill") {
-                                GlobalPlayer.instance.play(music: .init(
-                                    name: "Imagine",
-                                    url: Bundle.main.url(forResource: "imagine", withExtension: "mp3")
-                                )
-                                )
+                                GlobalPlayer.instance.play(music: item)
                             }
                         }
                     }
@@ -59,35 +58,45 @@ struct LibraryView: View {
 
     private var addMusicButton: some View {
         Button {
-            showingAlert.toggle()
+            viewModel.showingAlert.toggle()
         } label: {
             Label("Add Item", systemImage: "plus")
         }
-        .alert("Add Music", isPresented: $showingAlert) {
-            TextField("Name", text: $name)
-            TextField("URL", text: $urlString)
+        .alert("Add Music", isPresented: $viewModel.showingAlert) {
+            TextField("Name", text: $viewModel.name)
+            TextField("URL", text: $viewModel.urlString)
             Button("OK", action: addItem)
         } message: {
-            Text("Enter the song name and url")
+            Text("Enter the song name and the url")
         }
 
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Music(name: name, url: fileUrl)
+            guard let fileUrl else { return } // Plot error
+            let destinationUrl = viewModel.downloadMusic(from: fileUrl)
+            let newItem = Music(name: viewModel.name, url: destinationUrl)
             modelContext.insert(newItem)
+
+            viewModel.urlString = ""
+            viewModel.name = ""
         }
     }
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                let item = items[index]
+                modelContext.delete(item)
+                guard let url = item.url else { return }
+                try? FileManager.default.removeItem(at: url)
+                if GlobalPlayer.instance.playingMusic == item {
+                    GlobalPlayer.instance.stop()
+                }
             }
         }
     }
-
 }
 
 #Preview {

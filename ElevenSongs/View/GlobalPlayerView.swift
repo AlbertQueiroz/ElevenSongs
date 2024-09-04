@@ -12,7 +12,7 @@ struct GlobalPlayerView: View {
     @ObservedObject private var viewModel: GlobalPlayerViewModel
 
     init(
-        viewModel: GlobalPlayerViewModel
+        viewModel: GlobalPlayerViewModel // Use protocol for dependency injection
     ) {
         self.viewModel = viewModel
     }
@@ -49,11 +49,7 @@ struct GlobalPlayerView: View {
                 .cornerRadius(8)
                 .padding(16)
                 .padding(.bottom, 64)
-
             }
-        }
-        .onAppear {
-            viewModel.setupAudio()
         }
     }
 }
