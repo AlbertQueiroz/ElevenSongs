@@ -25,7 +25,7 @@ struct ElevenSongsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TabBarView()
+            SignInView()
         }
         .modelContainer(sharedModelContainer)
     }
