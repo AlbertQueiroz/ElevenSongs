@@ -73,14 +73,14 @@ This project is for educational and evaluative purposes as part of a take-home t
 
 | Light Mode | Dark Mode |
 |------------|-----------|
-
-
 | ![Light Mode - Login](https://github.com/user-attachments/assets/f30ef9a4-87bd-44d6-9bf8-8eb195a1a9c5) | ![Dark Mode - Login](https://github.com/user-attachments/assets/3ceb6caf-aab7-43c7-87ce-010fea050c27) |
 | ![Light Mode - Empty Library](https://github.com/user-attachments/assets/49f6962c-a623-47ba-9ddc-b9257f62808c) | ![Dark Mode - Empty Library](https://github.com/user-attachments/assets/a14c2914-17d9-42cf-90f7-795795583336) |
 | ![Light Mode - Add Song](https://github.com/user-attachments/assets/ce07ad68-db1a-4130-9d0d-b43266fb0594) | ![Dark Mode - Add Song](https://github.com/user-attachments/assets/dec3016f-44cc-40ee-af5f-0d8a0365902a) |
 | ![Light Mode Library](https://github.com/user-attachments/assets/daeee379-a328-462d-af01-0c3bcaf8e83d) | ![Dark Mode Library](https://github.com/user-attachments/assets/5870d3f1-fafe-42e9-8334-910900fa27e4) |
 
 
+## Video Example
+https://github.com/user-attachments/assets/ca7c2d95-0ea5-4aac-adbc-ab54507fd9b7
 
 
 
