@@ -18,6 +18,7 @@
 		50D398592C87BD5E00E6A5D5 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398582C87BD5E00E6A5D5 /* EmptyStateView.swift */; };
 		50D3985B2C87BD9900E6A5D5 /* GlobalPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3985A2C87BD9900E6A5D5 /* GlobalPlayerView.swift */; };
 		50D3985F2C87C05300E6A5D5 /* imagine.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50D3985E2C87C05300E6A5D5 /* imagine.mp3 */; };
+		50D398612C87E4E000E6A5D5 /* GlobalPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D398602C87E4E000E6A5D5 /* GlobalPlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		50D398582C87BD5E00E6A5D5 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		50D3985A2C87BD9900E6A5D5 /* GlobalPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPlayerView.swift; sourceTree = "<group>"; };
 		50D3985E2C87C05300E6A5D5 /* imagine.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = imagine.mp3; sourceTree = "<group>"; };
+		50D398602C87E4E000E6A5D5 /* GlobalPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +106,6 @@
 			children = (
 				50D398252C87A34A00E6A5D5 /* ElevenSongsApp.swift */,
 				50D3982B2C87A34C00E6A5D5 /* Assets.xcassets */,
-				50D398542C87B79F00E6A5D5 /* Data */,
-				50D398552C87B7A400E6A5D5 /* Domain */,
-				50D398562C87B7AC00E6A5D5 /* Interface */,
-				50D398572C87B7BF00E6A5D5 /* Scenes */,
 				50D398512C87B76600E6A5D5 /* Model */,
 				50D398522C87B77000E6A5D5 /* View */,
 				50D398532C87B78D00E6A5D5 /* ViewModel */,
@@ -163,36 +161,9 @@
 		50D398532C87B78D00E6A5D5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				50D398602C87E4E000E6A5D5 /* GlobalPlayerViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		50D398542C87B79F00E6A5D5 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		50D398552C87B7A400E6A5D5 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		50D398562C87B7AC00E6A5D5 /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interface;
-			sourceTree = "<group>";
-		};
-		50D398572C87B7BF00E6A5D5 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +301,7 @@
 				50D3985B2C87BD9900E6A5D5 /* GlobalPlayerView.swift in Sources */,
 				50D3982A2C87A34A00E6A5D5 /* Music.swift in Sources */,
 				50D398592C87BD5E00E6A5D5 /* EmptyStateView.swift in Sources */,
+				50D398612C87E4E000E6A5D5 /* GlobalPlayerViewModel.swift in Sources */,
 				50D398262C87A34A00E6A5D5 /* ElevenSongsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,14 @@ import SwiftData
 struct TabBarView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Music]
+    @State private var showingAlert = false
+    @State private var urlString = ""
+    private var name: String {
+        "\(urlString.split(separator: "=").last ?? "Some music")"
+    }
+    private var fileUrl: URL? {
+        .init(string: urlString)
+    }
 
     var body: some View {
         ZStack {
@@ -25,8 +33,12 @@ struct TabBarView: View {
                     }
             }
             GlobalPlayerView(
-                fileName: "imagine",
-                url: Bundle.main.url(forResource: "imagine", withExtension: "mp3")
+                viewModel: .init(
+                    music: .init(
+                        name: name,
+                        url: fileUrl
+                    )
+                )
             )
         }
     }
@@ -51,8 +63,16 @@ struct TabBarView: View {
                         EditButton()
                     }
                     ToolbarItem {
-                        Button(action: addItem) {
+                        Button {
+                            showingAlert.toggle()
+                        } label: {
                             Label("Add Item", systemImage: "plus")
+                        }
+                        .alert("Add Music", isPresented: $showingAlert) {
+                            TextField("URL", text: $urlString)
+                            Button("OK", action: addItem)
+                        } message: {
+                            Text("Enter the song url")
                         }
                     }
                 }
@@ -97,8 +117,9 @@ struct TabBarView: View {
     }
 
     private func addItem() {
+        downloadFileFromURL()
         withAnimation {
-            let newItem = Music(name: "Music")
+            let newItem = Music(name: name, url: fileUrl)
             modelContext.insert(newItem)
         }
     }
@@ -107,6 +128,33 @@ struct TabBarView: View {
         withAnimation {
             for index in offsets {
                 modelContext.delete(items[index])
+            }
+        }
+    }
+
+    func downloadFileFromURL(){
+        if let audioUrl = fileUrl {
+            let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+            let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent)
+
+            if FileManager.default.fileExists(atPath: destinationUrl.path) {
+                print("The file already exists at path")
+            } else {
+                URLSession.shared.downloadTask(
+                    with: audioUrl
+                ) { location, response, error in
+                    guard let location = location, error == nil else { return }
+                    do {
+                        try FileManager.default.moveItem(
+                            at: location,
+                            to: destinationUrl
+                        )
+                        print("File moved to documents folder")
+                    } catch {
+                        print(error)
+                    }
+                }.resume()
             }
         }
     }

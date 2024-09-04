@@ -6,24 +6,15 @@
 //
 
 import SwiftUI
-import AVKit
 
 struct GlobalPlayerView: View {
 
-    private let fileName: String?
-    private let url: URL?
-
-    @State private var player: AVAudioPlayer?
-    @State private var isPlaying = false
-    @State private var totalTime: TimeInterval = 0.0
-    @State private var currentTime: TimeInterval = 0.0
+    @ObservedObject private var viewModel: GlobalPlayerViewModel
 
     init(
-        fileName: String? = nil,
-        url: URL? = nil
+        viewModel: GlobalPlayerViewModel
     ) {
-        self.fileName = fileName
-        self.url = url
+        self.viewModel = viewModel
     }
 
     var body: some View {
@@ -31,16 +22,10 @@ struct GlobalPlayerView: View {
             Spacer()
             ZStack {
                 HStack {
-                    Text("Song name")
+                    Text(viewModel.music.name)
                     Spacer()
                     Button {
-                        if isPlaying {
-                            player?.pause()
-                            isPlaying = false
-                        } else {
-                            player?.play()
-                            isPlaying = true
-                        }
+                        viewModel.playPause()
                     } label: {
                         Label("", systemImage: "playpause.fill")
                     }
@@ -53,11 +38,11 @@ struct GlobalPlayerView: View {
 
                 Slider(value: Binding(
                     get: {
-                        currentTime
+                        viewModel.currentTime
                     }, set: { newValue in
-                        player?.currentTime = newValue
-                        currentTime = newValue
-                    }), in: 0...totalTime)
+                        viewModel.player?.currentTime = newValue
+                        viewModel.currentTime = newValue
+                    }), in: 0...viewModel.totalTime)
                 .accentColor(.black)
                 .padding(20)
                 .padding(.bottom, 4)
@@ -65,43 +50,27 @@ struct GlobalPlayerView: View {
             }
         }
         .onAppear {
-            if let url = url {
-                setupAudio(withURL: url)
-            }
+            viewModel.setupAudio()
         }
         .onReceive(Timer.publish(
             every: 0.01,
             on: .main,
             in: .common
         ).autoconnect()) { _ in
-            updateProgress()
+            viewModel.updateProgress()
         }
         .onDisappear {
-            player?.stop()
+            viewModel.player?.stop()
         }
-    }
-
-    private func setupAudio(withURL url: URL) {
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.prepareToPlay()
-            totalTime = player?.duration ?? 0.0
-            try AVAudioSession.sharedInstance().setCategory(.playback)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Error loading audio: \(error)")
-        }
-    }
-
-    private func updateProgress() {
-        guard let player = player, player.isPlaying else { return }
-        currentTime = player.currentTime
     }
 }
 
 #Preview {
     GlobalPlayerView(
-        fileName: "imagine",
-        url: Bundle.main.url(forResource: "imagine", withExtension: "mp3")
+        viewModel: .init(
+        music: .init(
+            name: "Imagine",
+            url: Bundle.main.url(forResource: "imagine", withExtension: "mp3"))
+        )
     )
 }
